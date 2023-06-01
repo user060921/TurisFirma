@@ -1,0 +1,76 @@
+{% extends 'includes/main.html' %}
+{% load static %}
+{% load i18n %}
+
+
+{% block title %}
+    Team
+{% endblock %}
+
+{% block content %}
+    <!-- Spinner Start -->
+    <!-- <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+        <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
+            <span class="sr-only">Loading...</span>
+        </div>
+    </div> -->
+    <!-- Spinner End -->
+
+        <!-- Navbar & Hero Start -->
+        <div class="container-fluid position-relative p-0">
+            <div class="container-fluid bg-primary py-5 mb-5 hero-header">
+                <div class="container py-5">
+                    <div class="row justify-content-center py-5">
+                        <div class="col-lg-10 pt-lg-5 mt-lg-5 text-center">
+                            <h1 class="display-3 text-white animated slideInDown">{% trans 'Guides' %}</h1>
+                            <nav aria-label="breadcrumb">
+                                <ol class="breadcrumb justify-content-center">
+                                    <li class="breadcrumb-item"><a href="#">{% trans 'Home' %}</a></li>
+                                    <li class="breadcrumb-item"><a href="#">{% trans 'Pages' %}</a></li>
+                                    <li class="breadcrumb-item text-white active" aria-current="page">{% trans 'Guides' %}</li>
+                                </ol>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Navbar & Hero End -->
+
+        <!-- Team Start -->
+        <div class="container-xxl py-5">
+            <div class="container">
+                <div class="text-center wow fadeInUp" data-wow-delay="0.0s">
+                    <h6 class="section-title bg-dark text-center text-primary px-3">{% trans 'Travel Guide' %}</h6>
+                    <h1 class="mb-5 text-white">{% trans 'Meet Our Guide' %}</h1>
+                </div>
+                <div class="row g-4">                                   
+                    <div class="container-xxl py-5 wow fadeInUp" data-wow-delay="0.1s">
+                        <div class="container">
+                            <div class="owl-carousel testimonial-carousel position-relative">
+                                {% for carusel in carusels %}
+                                <div class="testimonial-item bg-white text-center border p-4">
+                                    <img class="bg-white rounded-circle shadow p-1 mx-auto mb-3" src="/media/{{ carusel.img }}" style="width: 80px; height: 80px;">
+                                    <h5 class="mb-0">{{ carusel.name }}</h5>
+                                    <p>{{ article.country }}</p>
+                                    <p class="mb-0">{{ carusel.description | safe }}</p><br>
+                                    <div class="position-relative d-flex justify-content-center" style="margin-top: -19px;">
+                                        <a class="btn btn-square mx-1" href="{{ carusel.facebook }}"><i class="fab fa-facebook-f"></i></a>
+                                        <a class="btn btn-square mx-1" href="{{ carusel.twitter }}"><i class="fab fa-twitter"></i></a>
+                                        <a class="btn btn-square mx-1" href="{{ carusel.instagram }}"><i class="fab fa-instagram"></i></a>
+                                    </div>
+                                </div>
+                                {% endfor %}
+                                <div class="testimonial-item"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <!-- Team End -->
+
+    <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
+
+{% endblock %}

@@ -1,0 +1,19 @@
+{% load static %}
+{% load i18n %}
+
+{% block content %}
+<center>
+
+      <div style="border: 1px solid white;">
+        <img src="/media/{{ blog.img }}" style="width: 40%;height: 40%;" alt="">
+        <div class="card-body">
+          <h3 class="card-title">{% trans 'City name' %} : {{blog.country}}</h3>
+          <h3 class="card-title">{% trans 'How much' %} : {{blog.data}}</h3>
+          <h3 class="card-title">{% trans 'How many people' %} : {{blog.people}}</h3>
+          <h3 class="card-title">{% trans 'How much money' %} : {{blog.money}} $</h3>
+          <p class="card-text"><h3>{% trans 'Information' %} :</h3>{{blog.description | safe}}</p>
+          <a href="{% url 'package' %}" class="btn btn-primary mb-3">{% trans 'Back' %}</a>
+        </div>   
+      </div>
+</center>
+{% endblock%}

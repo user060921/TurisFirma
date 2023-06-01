@@ -1,0 +1,58 @@
+{% load static %}
+{% load i18n %}
+
+
+    <!-- Footer Start -->
+    <div class="container-fluid bg-dark text-light border-top border-dark footer pt-5 mt-5 wow fadeIn border-top border-white" data-wow-delay="0.1s">
+        <div class="container py-5 row g-5">
+            <div class="row g-5" style="gap: 9rem;">
+
+                <div class="col-lg-3 col-md-6">
+                    <h4 class="text-white mb-3">{% trans 'Contact' %}</h4>
+                    <small><a href="https://www.google.com/maps/place/Istanbul+-+asylum+of+taste/@41.0079329,71.6262479,18.04z/data=!4m6!3m5!1s0x38bb4b2ed09c1235:0xe14a33230833df0f!8m2!3d41.0075401!4d71.6272784!16s%2Fg%2F11f9vj927t?hl=ru-KG" class="me-3 text-light"><i class="fa fa-map-marker-alt me-2"></i>{% trans 'Uzbekistan in  Namangan city' %}</a></small><br>
+                    <small><a href="tel:+998 90 751 52 12" class="me-3 text-light"><i class="fa fa-phone-alt me-2"></i>{% trans '+998 90 751 52 12' %}</a></small><br>
+                    <small><a href="https://mail.google.com/mail/u/2/#inbox" class="text-light"><i class="fa fa-envelope-open me-2"></i>{% trans 'ibroximmaxmudov008@gmail.com' %}</a></small>
+                    <div class="d-flex pt-2">
+                        <a class="btn btn-outline-light btn-social" href="https://twitter.com/"><i class="fab fa-twitter"></i></a>
+                        <a class="btn btn-outline-light btn-social" href="https://facebook.com/"><i class="fab fa-facebook-f"></i></a>
+                        <a class="btn btn-outline-light btn-social" href="https://www.youtube.com/"><i class="fab fa-youtube"></i></a>
+                        <a class="btn btn-outline-light btn-social" href="https://ru.linkedin.com/ "><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-6">
+                    <h4 class="text-white mb-3">{% trans 'Company' %}</h4>
+                    <a class="btn btn-link" href="{% url 'about'%}">{% trans 'About Us' %}</a>
+                    <a class="btn btn-link" href="{% url 'service'%}">{% trans 'Service Us' %}</a>
+                    <a class="btn btn-link" href="{% url 'package'%}">{% trans 'Packages Us' %}</a>
+                    <a class="btn btn-link" href="#">{% trans 'Contact Us' %}</a>
+                </div>
+
+                <div class="col-lg-3 col-md-6" style="margin-bottom: 2rem;">
+
+                    <h4 class="text-white mb-3">{% trans 'Site abouts' %} :</h4>
+                    <div>
+                        <img style="width: 50%; height: 50%;" src="{% static 'img/Qr.png' %}" alt="">
+                        <h2 style="margin-top: 5px;" class="text-white">{% trans 'Scan it' %}</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="border-bottom border-white">
+            <div class="container">
+                <div class="copyright">
+                    <div class="row">
+                        <center>
+                            <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
+                                <center>
+                                    &copy; <a class="" href="#">Turis.com</a> , {% trans 'All Right Reserved. Designed By Maxmudov.I' %}
+                                </center>
+                            </div>
+                        </center>
+                    </div>
+                </div>
+            </div>
+        </div> 
+    </div>
+    <!-- Footer End -->
+

@@ -1,0 +1,88 @@
+{% load i18n %}
+{% load static %}
+
+
+
+
+
+    <!-- Spinner Start -->
+    <!-- <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+        <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
+            <span class="sr-only">Loading...</span>
+        </div>
+    </div> -->
+    <!-- Spinner End -->
+
+
+    <!-- Topbar Start -->
+    <div class="container-fluid bg-dark px-5 d-none d-lg-block"><</i>
+        <div class="row gx-0">
+            <div class="col-lg-8 text-center text-lg-start mb-2 mb-lg-0">
+                <div class="d-inline-flex align-items-center" style="height: 45px;">
+                    <small><a href="https://www.google.com/maps/place/Istanbul+-+asylum+of+taste/@41.0079329,71.6262479,18.04z/data=!4m6!3m5!1s0x38bb4b2ed09c1235:0xe14a33230833df0f!8m2!3d41.0075401!4d71.6272784!16s%2Fg%2F11f9vj927t?hl=ru-KG" class="me-3 text-light"><i class="fa fa-map-marker-alt me-2"></i>{% trans 'Uzbekistan in  Namangan city' %}</a></small>
+                    <small><a href="tel+:998 90 751 52 12" class="me-3 text-light"><i class="fa fa-phone-alt me-2"></i>{% trans '+998 90 751 52 12' %}</a></small>
+                    <small><a href="https://mail.google.com/mail/u/2/#inbox" class="text-light"><i class="fa fa-envelope-open me-2"></i>{% trans 'ibroximmaxmudov008@gmail.com' %}</a></small>
+                </div>
+            </div>
+            <div class="col-lg-4 text-center text-lg-end">
+                <div class="d-inline-flex align-items-center" style="height: 45px;">
+                    <a class="btn btn-sm btn-outline-light btn-sm-square rounded-circle me-2" href="https://twitter.com/"><i class="fab fa-twitter fw-normal"></i></a>
+                    <a class="btn btn-sm btn-outline-light btn-sm-square rounded-circle me-2" href="https://facebook.com/"><i class="fab fa-facebook-f fw-normal"></i></a>
+                    <a class="btn btn-sm btn-outline-light btn-sm-square rounded-circle me-2" href="https://ru.linkedin.com/"><i class="fab fa-linkedin-in fw-normal"></i></a>
+                    <a class="btn btn-sm btn-outline-light btn-sm-square rounded-circle me-2" href="https://www.instagram.com/"><i class="fab fa-instagram fw-normal"></i></a>
+                    <a class="btn btn-sm btn-outline-light btn-sm-square rounded-circle" href="https://www.youtube.com/"><i class="fab fa-youtube fw-normal"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Topbar End -->
+
+
+        <!-- Navbar & Hero Start -->
+        <div class="container-fluid position-relative p-0">
+            <nav class="navbar navbar-expand-lg navbar-light px-4 px-lg-5 py-3 py-lg-0">
+                <a href="{% url 'home' %}" class="navbar-brand p-0">
+                    <h1 class="text-primary m-0"><i class="fa fa-map-marker-alt me-3"></i>Tourist</h1>
+                    <!-- <img src="img/logo.png" alt="Logo"> -->
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+                    <span class="fa fa-bars"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarCollapse">
+                    <div class="navbar-nav ms-auto py-0">
+                        <a href="{% url 'home' %}" class="nav-item nav-link {{ home }}">{% trans 'Home' %}</a>
+                        <a href="{% url 'about' %}" class="nav-item nav-link {{ about }}">{% trans 'About' %}</a>
+                        <a href="{% url 'service' %}" class="nav-item nav-link {{ article }}">{% trans 'Services' %}</a>
+                        <a href="{% url 'package' %}" class="nav-item nav-link {{ pac }}">{% trans 'Packages' %}</a>
+                        <div class="nav-item dropdown">
+                            <a href="#" class="nav-link {{ des }} {{ book }}  {{ team }} {{ Not }} {{ test }} dropdown-toggle" data-bs-toggle="dropdown">{% trans 'Pages' %}</a>
+                            <div class="dropdown-menu m-0 bg-dark">
+                                <a href="{% url 'destination' %}" class="border-bottom border-white text-white dropdown-item {{ des }}">{% trans 'Destination' %}</a>
+                                <a href="{% url 'team' %}" class="border-bottom border-white text-white dropdown-item {{ team }}">{% trans 'Travel Guides' %}</a>
+                                <a href="{% url 'testimonial' %}" class="text-white dropdddddeeeddown-item {{ test }}">{% trans 'Clients' %}</a>
+                            </div>
+                        </div>
+                        <a href="{% url 'contact' %}" class="nav-item nav-link {{ contact }}">{% trans 'Contact' %}</a>
+                        <div class="col-md-4" style="width: 23%; margin-top: 0.4rem;">
+                            <form action="{% url 'set_language' %}" method="post" class="d-flex" style="margin-top: 0.7rem;">
+                                {% csrf_token %}
+                                <input name="next" type="hidden" value="{{ redirect_to }}">
+                                <select name="language" class="border border-white text-white form-select-white" style="background: rgb(59,59,62);">
+                                    <div>
+                                        {% get_current_language as LANGUAGE_CODE %}
+                                        {% get_available_languages as LANGUAGES %}
+                                        {% get_language_info_list for LANGUAGES as languages %}
+                                        {% for language in languages %}
+                                        <option value="{{ language.code }}"{% if language.code == LANGUAGE_CODE %} selected{% endif %}>
+                                            <button style="width: 50%;" value="{{ language.name_local }}">{{ language.name_local }}</button>
+                                        </option>
+                                        {% endfor %}
+                                    </div>
+                                    <input style="background: rgb(59,59,62);" class="btn btn-success border border-white" type="submit" value="Go">
+                                </select>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        <!-- Navbar & Hero

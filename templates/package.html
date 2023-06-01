@@ -1,0 +1,151 @@
+{% extends 'includes/main.html' %}
+{% load static %}
+{% load i18n %}
+
+
+{% block title %}
+Package
+{% endblock %}
+
+{% block content %}
+<!-- Spinner Start -->
+<!-- <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+        <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
+            <span class="sr-only">Loading...</span>
+        </div>
+    </div> -->
+<!-- Spinner End -->
+
+<!-- Navbar & Hero Start -->
+<div class="container-fluid position-relative p-0">
+    <div class="container-fluid bg-primary py-5 mb-5 hero-header">
+        <div class="container py-5">
+            <div class="row justify-content-center py-5">
+                <div class="col-lg-10 pt-lg-5 mt-lg-5 text-center">
+                    <h1 class="display-3 text-white animated slideInDown">{% trans 'Packages' %}</h1>
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb justify-content-center">
+                            <li class="breadcrumb-item"><a href="#">{% trans 'Home' %}</a></li>
+                            <li class="breadcrumb-item"><a href="#">{% trans 'Pages' %}</a></li>
+                            <li class="breadcrumb-item text-white active" aria-current="page">{% trans 'Packages' %}</li>
+                        </ol>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Navbar & Hero End -->
+
+
+<!-- Package Start -->
+<div class="container-xxl py-5">
+    <div class="container">
+        <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
+            <h6 class="section-title bg-dark text-center text-primary px-3">{% trans 'Packages' %}</h6>
+            <h1 class="mb-5 text-white">{% trans 'Awesome Packages' %}</h1>
+        </div>
+        <div class="row g-4 justify-content-center text-white">
+            {% for product in products %}
+            <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+                <div class="package-item" style="border: 1px solid white;">
+                    <div class="overflow-hidden">
+                        <img style="width: 100%;height: 100%;" src="/media/{{ product.img }}" alt="">
+                    </div>
+                    <div class="d-flex border-bottom">
+                        <small class="flex-fill text-center border-end py-2"><i
+                                class="fa fa-map-marker-alt text-primary me-2"></i>{{ product.country }}</small>
+                        <small class="flex-fill text-center border-end py-2"><i
+                                class="fa fa-calendar-alt text-primary me-2"></i>{{ product.data }}</small>
+                        <small class="flex-fill text-center py-2"><i class="fa fa-user text-primary me-2"></i>{{ product.people }}</small>
+                    </div>
+                    <div class="text-center p-4">
+                        <h3 class="mb-0 text-white">${{ product.money }}</h3>
+                        <div class="mb-3">
+                            <small class="fa fa-star text-primary"></small>
+                            <small class="fa fa-star text-primary"></small>
+                            <small class="fa fa-star text-primary"></small>
+                            <small class="fa fa-star text-primary"></small>
+                            <small class="fa fa-star text-primary"></small>
+                        </div>
+                        <div class="d-flex justify-content-center mb-2 ">
+                            <a href="{% url 'blog_detail' product.id  %}" class="btn btn-sm btn-primary px-3 border-end" style="border-radius: 30px 0 0 30px;">{% trans 'Read More' %}</a>
+                            <a href="{% url 'contact' %}" class="btn btn-sm btn-primary px-3" style="border-radius: 0 30px 30px 0;">{% trans 'Buy it' %}</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+           <center><h4 class="text-white">{% trans 'Enter information in the contact section to purchase packages' %}</h4></center>
+            <center>
+                <nav class="mt-4" aria-label="Page navigation sample" data-wow-delay="0.1s">
+                    <ul class="pagination">
+                        <li class="page-item ">
+                            {% if products.has_previous %}
+                            <a class="page-link" href="?page={{ products.previous_page_number }}">{% trans 'Previous'%}
+                                <span aria-hidden="true">&laquo;</span>
+                            </a>
+                            {% endif %}
+                        </li>
+                        {% for i in products.paginator.page_range %}
+                        {% if products.number == i %}
+                        <li class="page-item "><a class="page-link" href="">{{ i }}</a></li>
+                        {% else %}
+                        <li class="page-item "><a class="page-link" href="?page={{ i }}">{{ i }}</a></li>
+                        {% endif %}
+                        {% endfor %}
+                        <li class="page-item">
+                            {% if products.has_next %}
+                            <a class="page-link" href="?page={{ products.next_page_number }}">{% trans 'Next' %}
+                                <span aria-hidden="true">&raquo;</span>
+                            </a>
+                            {% endif %}
+                        </li>
+                    </ul>
+                </nav>
+            </center>
+            <hr>
+        </div>
+    </div>
+</div>
+<!-- Package End -->
+
+    <!-- Process Start -->
+    <div class="container-xxl py-5">
+        <div class="container">
+            <div class="text-center text-white pb-4 wow fadeInUp" data-wow-delay="0.1s">
+                <h6 class="section-title bg-dark text-center text-primary px-3">{% trans 'Process' %}</h6>
+                <h1 class="mb-5 text-white">{% trans '2 Easy Steps' %}</h1>
+            </div>
+            <div class="row gy-5 gx-4 justify-content-center" style="gap: 5rem;">
+                <div class="col-lg-4 col-sm-6 text-center pt-4 wow fadeInUp" data-wow-delay="0.3s">
+                    <div class="position-relative text-white border border-white pt-5 pb-4 px-4">
+                        <div class="d-inline-flex align-items-center justify-content-center bg-primary rounded-circle position-absolute top-0 start-50 translate-middle shadow" style="width: 100px; height: 100px;">
+                            <i class="fa fa-dollar-sign fa-3x text-white"></i>
+                        </div>
+                        <a href="{% url 'service' %}"><h5 class="mt-4 text-white">{% trans 'Pay Online' %}</h5></a>
+                        <hr class="w-25 mx-auto bg-primary mb-1">
+                        <hr class="w-50 mx-auto bg-primary mt-0">
+                        <p class="mb-0">Tempor erat elitr rebum clita dolor diam ipsum sit diam amet diam eos erat ipsum et lorem et sit sed stet lorem sit</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-sm-6 text-center pt-4 wow fadeInUp" data-wow-delay="0.5s">
+                    <div class="position-relative text-white border border-white pt-5 pb-4 px-4">
+                        <div class="d-inline-flex align-items-center justify-content-center bg-primary rounded-circle position-absolute top-0 start-50 translate-middle shadow" style="width: 100px; height: 100px;">
+                            <i class="fa fa-plane fa-3x text-white"></i>
+                        </div>
+                        <a href="{%  url 'destination' %}"><h5 class="mt-4 text-white">{% trans 'Fly Today' %}</h5></a>
+                        <hr class="w-25 mx-auto bg-primary mb-1">
+                        <hr class="w-50 mx-auto bg-primary mt-0">
+                        <p class="mb-0">Tempor erat elitr rebum clita dolor diam ipsum sit diam amet diam eos erat ipsum et lorem et sit sed stet lorem sit</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Process Start -->
+
+
+<a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
+
+{% endblock %}
